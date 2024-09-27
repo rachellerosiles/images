@@ -15,6 +15,9 @@
 		A0DF5F522CA74DAA005FD987 /* imagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF5F512CA74DAA005FD987 /* imagesTests.swift */; };
 		A0DF5F5C2CA74DAA005FD987 /* imagesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF5F5B2CA74DAA005FD987 /* imagesUITests.swift */; };
 		A0DF5F5E2CA74DAA005FD987 /* imagesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF5F5D2CA74DAA005FD987 /* imagesUITestsLaunchTests.swift */; };
+		A0DF5F6B2CA74F87005FD987 /* OpenFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF5F6A2CA74F87005FD987 /* OpenFFT.swift */; };
+		A0DF5F6C2CA74F87005FD987 /* OpenFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF5F6A2CA74F87005FD987 /* OpenFFT.swift */; };
+		A0DF5F6D2CA74F87005FD987 /* OpenFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF5F6A2CA74F87005FD987 /* OpenFFT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,7 @@
 		A0DF5F572CA74DAA005FD987 /* imagesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = imagesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DF5F5B2CA74DAA005FD987 /* imagesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagesUITests.swift; sourceTree = "<group>"; };
 		A0DF5F5D2CA74DAA005FD987 /* imagesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A0DF5F6A2CA74F87005FD987 /* OpenFFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFFT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				A0DF5F432CA74DAA005FD987 /* Assets.xcassets */,
 				A0DF5F452CA74DAA005FD987 /* images.entitlements */,
 				A0DF5F462CA74DAA005FD987 /* Preview Content */,
+				A0DF5F6A2CA74F87005FD987 /* OpenFFT.swift */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			files = (
 				A0DF5F402CA74DA9005FD987 /* ContentView.swift in Sources */,
 				A0DF5F422CA74DA9005FD987 /* Item.swift in Sources */,
+				A0DF5F6B2CA74F87005FD987 /* OpenFFT.swift in Sources */,
 				A0DF5F3E2CA74DA9005FD987 /* imagesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0DF5F6C2CA74F87005FD987 /* OpenFFT.swift in Sources */,
 				A0DF5F522CA74DAA005FD987 /* imagesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +289,7 @@
 			files = (
 				A0DF5F5E2CA74DAA005FD987 /* imagesUITestsLaunchTests.swift in Sources */,
 				A0DF5F5C2CA74DAA005FD987 /* imagesUITests.swift in Sources */,
+				A0DF5F6D2CA74F87005FD987 /* OpenFFT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,65 +2,65 @@
 //  ContentView.swift
 //  images
 //
-//  Created by Rachelle Rosiles on 9/27/24.
+//  Created by Rachelle Rosiles on 6/17/24.
 //
 
 import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @State private var images: [NSImage] = []
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        VStack {
+            Button(action: openImagePicker) {
+                Text("Select TIFF Images")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            
+            ScrollView {
+                HStack {
+                    ForEach(images, id: \.self) { image in
+                        Image(nsImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                            .padding()
+                            .border(Color.gray, width: 1)
+                            .background(
+                                GeometryReader { geometry in
+                                    Color.clear.onAppear {
+                                        displayFFT(for: image, in: geometry.size)
+                                    }
+                                }
+                            )
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+        }
+        .padding()
+    }
+    
+    private func openImagePicker() {
+        let openPanel = NSOpenPanel()
+        //openPanel.allowedContentTypes = ["tiff", "tif"]
+        openPanel.allowsMultipleSelection = true
+        
+        openPanel.begin { result in
+            if result == .OK {
+                for url in openPanel.urls {
+                    if let image = NSImage(contentsOf: url) {
+                        images.append(image)
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
         }
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
+    
+    private func displayFFT(for image: NSImage, in size: CGSize) {
+        
     }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
-    }
-}
-
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
